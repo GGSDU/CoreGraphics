@@ -19,11 +19,23 @@ import UIKit
 class SXCoreView: UIView {
     
     var radiusValue : CGFloat = 10
+    var snowX : CGFloat = 0
+    var snowY : CGFloat = 0
+    
+    override func awakeFromNib() {
+        
+        // 默认   1秒60次
+        let displayLink =  CADisplayLink(target: self, selector: #selector(CALayer.setNeedsDisplay))
+        displayLink.add(to: RunLoop.main, forMode: .commonModes)
+        
+//        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(CALayer.setNeedsDisplay), userInfo: nil, repeats: true)
+    }
     
     // 默认只在view第一次显示时调用(只能系统调用,不要手动调用)
     override func draw(_ rect: CGRect) {
 
-        reDraw()
+//        reDraw()
+        snowAnimation()
     }
     
     @IBAction func slider(_ sender: UISlider) {
@@ -32,6 +44,17 @@ class SXCoreView: UIView {
         // 重绘(这个方法内部会重新调用drawRect)
         setNeedsDisplay()
         print(sender.value)
+    }
+    
+    func snowAnimation() -> Void {
+        
+        snowY += 10
+        if snowY > self.bounds.height {
+            snowY = -10
+        }
+        
+        let snowImage = UIImage(named:"snow.jpg")
+        snowImage?.draw(at: CGPoint(x:snowX,y:snowY))
     }
     
     func reDraw() -> Void {
