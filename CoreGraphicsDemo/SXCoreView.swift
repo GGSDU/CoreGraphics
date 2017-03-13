@@ -18,11 +18,27 @@ import UIKit
 
 class SXCoreView: UIView {
     
+    var radiusValue : CGFloat = 10
     
+    // 默认只在view第一次显示时调用(只能系统调用,不要手动调用)
     override func draw(_ rect: CGRect) {
 
-        clipImage()
+        reDraw()
+    }
+    
+    @IBAction func slider(_ sender: UISlider) {
         
+        radiusValue = CGFloat(sender.value)
+        // 重绘(这个方法内部会重新调用drawRect)
+        setNeedsDisplay()
+        print(sender.value)
+    }
+    
+    func reDraw() -> Void {
+        let ctx = UIGraphicsGetCurrentContext()
+        
+        ctx?.addArc(center: CGPoint(x:125,y:200), radius: radiusValue, startAngle: 0, endAngle: CGFloat(M_PI * 2), clockwise: false)
+        ctx?.fillPath()
     }
     
     func clipImage() -> Void {
