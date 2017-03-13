@@ -13,6 +13,9 @@
 		7565BCD01E72A4FA00133733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7565BCCF1E72A4FA00133733 /* Assets.xcassets */; };
 		7565BCD31E72A4FA00133733 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7565BCD11E72A4FA00133733 /* LaunchScreen.storyboard */; };
 		7565BCDB1E72A52000133733 /* SXCoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7565BCDA1E72A52000133733 /* SXCoreView.swift */; };
+		7565BD0E1E768ABD00133733 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7565BD0D1E768ABD00133733 /* logo@2x.png */; };
+		7565BD101E768BB100133733 /* finder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7565BD0F1E768BB100133733 /* finder@3x.png */; };
+		7565BD121E768DFE00133733 /* timg-2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7565BD111E768DFE00133733 /* timg-2.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		7565BCD21E72A4FA00133733 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7565BCD41E72A4FA00133733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7565BCDA1E72A52000133733 /* SXCoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SXCoreView.swift; sourceTree = "<group>"; };
+		7565BD0D1E768ABD00133733 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		7565BD0F1E768BB100133733 /* finder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finder@3x.png"; sourceTree = "<group>"; };
+		7565BD111E768DFE00133733 /* timg-2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "timg-2.jpeg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,9 @@
 				7565BCC81E72A4FA00133733 /* AppDelegate.swift */,
 				7565BCCA1E72A4FA00133733 /* ViewController.swift */,
 				7565BCDA1E72A52000133733 /* SXCoreView.swift */,
+				7565BD111E768DFE00133733 /* timg-2.jpeg */,
+				7565BD0D1E768ABD00133733 /* logo@2x.png */,
+				7565BD0F1E768BB100133733 /* finder@3x.png */,
 				7565BCCC1E72A4FA00133733 /* Main.storyboard */,
 				7565BCCF1E72A4FA00133733 /* Assets.xcassets */,
 				7565BCD11E72A4FA00133733 /* LaunchScreen.storyboard */,
@@ -127,8 +136,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7565BCD31E72A4FA00133733 /* LaunchScreen.storyboard in Resources */,
+				7565BD0E1E768ABD00133733 /* logo@2x.png in Resources */,
+				7565BD101E768BB100133733 /* finder@3x.png in Resources */,
 				7565BCD01E72A4FA00133733 /* Assets.xcassets in Resources */,
 				7565BCCE1E72A4FA00133733 /* Main.storyboard in Resources */,
+				7565BD121E768DFE00133733 /* timg-2.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +313,7 @@
 				7565BCD91E72A4FA00133733 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,22 +9,70 @@
 import Foundation
 import UIKit
 
+/**
+ 渐变色
+ 虚线
+ pattern
+ ...
+ */
+
 class SXCoreView: UIView {
     
     
     override func draw(_ rect: CGRect) {
 
+        clipImage()
         
-        clipRect()
+    }
+    
+    func clipImage() -> Void {
+        
+        let point : CGPoint = CGPoint(x:20,y:20)
+        let rect : CGRect = CGRect(x:point.x,y:point.y,width:200,height:200)
+        
+        let ctx : CGContext = UIGraphicsGetCurrentContext()!
+        
+        // round
+//        ctx.addEllipse(in: rect)
+        
+        // triangle
+        ctx.move(to: point)
+        ctx.addLine(to: CGPoint(x:point.x,y:point.y + rect.height))
+        ctx.addLine(to: CGPoint(x:point.x + rect.width,y:point.y + rect.height / 2))
+        ctx.closePath()
+        
+        ctx.clip()  // clip
+        
+        
+        ctx.fillPath ()
+        
+        
+        let image : UIImage = UIImage(named:"timg-2.jpeg")!
+        image.draw(at:point)
     }
     
     func clipRect() -> Void {
         let ctx : CGContext = UIGraphicsGetCurrentContext()!
+        
+        ctx.saveGState()
+        // 矩阵操作
+        ctx.scaleBy(x: 0.5, y: 0.5)             // 变细
+        ctx.rotate(by: CGFloat(M_PI_4 * 0.2))   // 旋转
+        ctx.translateBy(x: 0, y: 50)            // 移动
+        
         ctx.addRect(CGRect(x:10,y:10,width:50,height:50))
+        
+        
         ctx.addEllipse(in: CGRect(x:100,y:100,width:100,height:100))
+        
+        ctx.strokePath()
+        ctx.restoreGState()
         
         ctx.move(to: CGPoint(x:100,y:100))
         ctx.addLine(to: CGPoint(x:200,y:250))
+        
+        
+        
         
         ctx.strokePath()
     }
