@@ -101,13 +101,6 @@ class SXRulerView: UIView {
         var offset : Int = 0
         
         context.saveGState()
-        
-        if kAB > 0 {
-            context.setStrokeColor(UIColor.blue.cgColor)
-        } else {
-            context.setStrokeColor(UIColor.green.cgColor)
-        }
-        
         while Float(offset) <  RulerBodyHeight{
             let mod = (offset / scale) % 5
             
@@ -173,25 +166,19 @@ class SXRulerView: UIView {
         
         let rectPoints = rulerCalculator!.getRectPoints()
         // 画外边框(最后要计算的尺度)
+        if rectPoints.count != 4 {
+            return
+        }
+        
         // save state
         context.saveGState()
-        if rectPoints.count == 4 {
-            print(rectPoints)
-            
-            context.setStrokeColor(UIColor.blue.cgColor)
-            context.move(to: rectPoints[0])
-            context.addLine(to: rectPoints[1])
-            context.addLine(to: rectPoints[2])
-            
-            context.strokePath()
-            context.restoreGState()
-            context.saveGState()
-            context.setStrokeColor(UIColor.green.cgColor)
-            context.move(to: rectPoints[2])
-            
-            context.addLine(to: rectPoints[3])
-            context.closePath()
-        }
+        // draw rect
+        context.move(to: rectPoints[0])
+        context.addLine(to: rectPoints[1])
+        context.addLine(to: rectPoints[2])
+        context.addLine(to: rectPoints[3])
+        context.closePath()
+        
         context.strokePath()
         // restore state
         context.restoreGState()
@@ -204,19 +191,15 @@ class SXRulerView: UIView {
         if linePoints.count < 4 {
             return
         }
-        let linePoint0 = linePoints[0]
-        let linePoint1 = linePoints[1]
-        let linePoint2 = linePoints[2]
-        let linePoint3 = linePoints[3]
         
         // save state
         context.saveGState()
         // draw line
-        context.move(to: linePoint0)
-        context.addLine(to: linePoint1)
+        context.move(to: linePoints[0])
+        context.addLine(to: linePoints[1])
         
-        context.move(to: linePoint2)
-        context.addLine(to: linePoint3)
+        context.move(to: linePoints[2])
+        context.addLine(to: linePoints[3])
         // config line style
         context.setLineDash(phase: 0, lengths: [10,10])
         
