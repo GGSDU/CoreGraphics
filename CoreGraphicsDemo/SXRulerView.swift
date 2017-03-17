@@ -12,14 +12,36 @@ import UIKit
 class SXRulerView: UIView {
     
     var rulerCalculator : SXRulerCalculator?
-    
     let baseWidth : CGFloat = 20
-    var startPoint : CGPoint = CGPoint(x:200,y:100)
-    var endPoint : CGPoint = CGPoint(x:150,y:500)
+    
+    private var _startPoint : CGPoint?
+    var startPoint : CGPoint {
+        set {
+            _startPoint = newValue
+            rulerCalculator?.startPoint = newValue
+        }
+        get {
+            return _startPoint!
+        }
+    }
+    
+    private var _endPoint : CGPoint?
+    var endPoint : CGPoint {
+        set {
+            _endPoint = newValue
+            rulerCalculator?.endPoint = newValue
+        }
+        get {
+            return _endPoint!
+        }
+    }
+
     var startPointTouchSwitch = false
     var endPointTouchSwitch = false
     
     override func awakeFromNib() {
+        startPoint  = CGPoint(x:200,y:100)
+        endPoint    = CGPoint(x:150,y:500)
         rulerCalculator = SXRulerCalculator(aStartPoint: startPoint, aEndPoint: endPoint, aBaseWidth: baseWidth, aRect: bounds)
         
     }
@@ -55,9 +77,11 @@ class SXRulerView: UIView {
         
         if startPointTouchSwitch {
             startPoint = touchPoint;
+            rulerCalculator?.startPoint = startPoint
             setNeedsDisplay()
         } else if endPointTouchSwitch {
             endPoint = touchPoint;
+            rulerCalculator?.endPoint = endPoint
             setNeedsDisplay()
         }
     }
@@ -165,6 +189,8 @@ class SXRulerView: UIView {
     func drawRulerFrame(context:CGContext) -> Void {
         
         let rectPoints = rulerCalculator!.getRectPoints()
+        print("*********")
+        print(rectPoints)
         // 画外边框(最后要计算的尺度)
         if rectPoints.count != 4 {
             return
@@ -188,6 +214,9 @@ class SXRulerView: UIView {
     func drawDash(context:CGContext) -> Void {
         
         let linePoints = rulerCalculator!.getInterPoints()
+        print("*********")
+        print(linePoints)
+        
         if linePoints.count < 4 {
             return
         }

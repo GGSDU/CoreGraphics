@@ -31,8 +31,6 @@ class SXRulerCalculator: NSObject {
         endPoint = aEndPoint
         baseWidth = aBaseWidth
         rect = aRect
-        
-        calculateLineParam()
     }
     
     // MARK: 计算所有直线方程
@@ -54,6 +52,8 @@ class SXRulerCalculator: NSObject {
     
     // MARK: 获取直线与屏幕边缘的交点
     func getInterPoints() -> Array<CGPoint> {
+        calculateLineParam()
+
         /// 直接获取 x = 0, y = 0, x = width , y = height 四个点,然后判断相应的 0 =< x <= width, 0 =< y <= height
         var interPoints : Array<CGPoint> = [CGPoint]()
         
@@ -78,6 +78,8 @@ class SXRulerCalculator: NSObject {
     
     // MARK: 获取尺子边框4个点坐标
     func getRectPoints() -> Array<CGPoint> {
+        calculateLineParam()
+
         // x = (b2 - b1) / (k1 - k2)
         var rectPoints : Array<CGPoint> = [CGPoint]()
         
