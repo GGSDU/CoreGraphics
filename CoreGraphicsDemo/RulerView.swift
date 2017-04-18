@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-class SXRulerView: UIView {
+class RulerView: UIView {
     
-    var rulerCalculator : SXRulerCalculator?
+    var rulerCalculator : RulerCalculator?
     let baseWidth : CGFloat = 20
     
     private var _startPoint : CGPoint?
@@ -42,7 +42,7 @@ class SXRulerView: UIView {
     override func awakeFromNib() {
         startPoint  = CGPoint(x:200,y:100)
         endPoint    = CGPoint(x:150,y:500)
-        rulerCalculator = SXRulerCalculator(aStartPoint: startPoint, aEndPoint: endPoint, aBaseWidth: baseWidth, aRect: bounds)
+        rulerCalculator = RulerCalculator(aStartPoint: startPoint, aEndPoint: endPoint, aBaseWidth: baseWidth, aRect: bounds)
         
     }
     

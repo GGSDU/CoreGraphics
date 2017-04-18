@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SXRulerCalculator: NSObject {
+class RulerCalculator: NSObject {
     
     var startPoint  : CGPoint = CGPoint.zero
     var endPoint    : CGPoint = CGPoint.zero
