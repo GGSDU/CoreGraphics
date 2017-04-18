@@ -7,35 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7565BCC91E72A4FA00133733 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7565BCC81E72A4FA00133733 /* AppDelegate.swift */; };
-		7565BCCB1E72A4FA00133733 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7565BCCA1E72A4FA00133733 /* ViewController.swift */; };
-		7565BCCE1E72A4FA00133733 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7565BCCC1E72A4FA00133733 /* Main.storyboard */; };
-		7565BCD01E72A4FA00133733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7565BCCF1E72A4FA00133733 /* Assets.xcassets */; };
-		7565BCD31E72A4FA00133733 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7565BCD11E72A4FA00133733 /* LaunchScreen.storyboard */; };
-		7565BCDB1E72A52000133733 /* SXCoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7565BCDA1E72A52000133733 /* SXCoreView.swift */; };
-		7565BD0E1E768ABD00133733 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7565BD0D1E768ABD00133733 /* logo@2x.png */; };
-		7565BD101E768BB100133733 /* finder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7565BD0F1E768BB100133733 /* finder@3x.png */; };
-		7565BD121E768DFE00133733 /* timg-2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7565BD111E768DFE00133733 /* timg-2.jpeg */; };
-		7565BD141E76975300133733 /* snow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7565BD131E76975300133733 /* snow.jpg */; };
-		7565BD1C1E76DC9C00133733 /* RulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7565BD1B1E76DC9C00133733 /* RulerView.swift */; };
-		7565BD201E78539700133733 /* RulerCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7565BD1F1E78539700133733 /* RulerCalculator.swift */; };
+		75A287711EA60D9A009C9E31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A287621EA60D9A009C9E31 /* AppDelegate.swift */; };
+		75A287721EA60D9A009C9E31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A287631EA60D9A009C9E31 /* Assets.xcassets */; };
+		75A287731EA60D9A009C9E31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A287641EA60D9A009C9E31 /* LaunchScreen.storyboard */; };
+		75A287741EA60D9A009C9E31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A287661EA60D9A009C9E31 /* Main.storyboard */; };
+		75A287751EA60D9A009C9E31 /* finder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75A287681EA60D9A009C9E31 /* finder@3x.png */; };
+		75A287761EA60D9A009C9E31 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75A287691EA60D9A009C9E31 /* Info.plist */; };
+		75A287771EA60D9A009C9E31 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75A2876A1EA60D9A009C9E31 /* logo@2x.png */; };
+		75A287781EA60D9A009C9E31 /* RulerCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2876B1EA60D9A009C9E31 /* RulerCalculator.swift */; };
+		75A287791EA60D9A009C9E31 /* RulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2876C1EA60D9A009C9E31 /* RulerView.swift */; };
+		75A2877A1EA60D9A009C9E31 /* snow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75A2876D1EA60D9A009C9E31 /* snow.jpg */; };
+		75A2877B1EA60D9A009C9E31 /* SXCoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2876E1EA60D9A009C9E31 /* SXCoreView.swift */; };
+		75A2877C1EA60D9A009C9E31 /* timg-2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 75A2876F1EA60D9A009C9E31 /* timg-2.jpeg */; };
+		75A2877D1EA60D9A009C9E31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A287701EA60D9A009C9E31 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7565BCC51E72A4FA00133733 /* RulerViewSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RulerViewSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7565BCC81E72A4FA00133733 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7565BCCA1E72A4FA00133733 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7565BCCD1E72A4FA00133733 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7565BCCF1E72A4FA00133733 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7565BCD21E72A4FA00133733 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7565BCD41E72A4FA00133733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7565BCDA1E72A52000133733 /* SXCoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SXCoreView.swift; sourceTree = "<group>"; };
-		7565BD0D1E768ABD00133733 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
-		7565BD0F1E768BB100133733 /* finder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finder@3x.png"; sourceTree = "<group>"; };
-		7565BD111E768DFE00133733 /* timg-2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "timg-2.jpeg"; sourceTree = "<group>"; };
-		7565BD131E76975300133733 /* snow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snow.jpg; sourceTree = "<group>"; };
-		7565BD1B1E76DC9C00133733 /* RulerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerView.swift; sourceTree = "<group>"; };
-		7565BD1F1E78539700133733 /* RulerCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerCalculator.swift; sourceTree = "<group>"; };
+		75A287621EA60D9A009C9E31 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		75A287631EA60D9A009C9E31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		75A287651EA60D9A009C9E31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		75A287671EA60D9A009C9E31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		75A287681EA60D9A009C9E31 /* finder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finder@3x.png"; sourceTree = "<group>"; };
+		75A287691EA60D9A009C9E31 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75A2876A1EA60D9A009C9E31 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		75A2876B1EA60D9A009C9E31 /* RulerCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerCalculator.swift; sourceTree = "<group>"; };
+		75A2876C1EA60D9A009C9E31 /* RulerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerView.swift; sourceTree = "<group>"; };
+		75A2876D1EA60D9A009C9E31 /* snow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snow.jpg; sourceTree = "<group>"; };
+		75A2876E1EA60D9A009C9E31 /* SXCoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SXCoreView.swift; sourceTree = "<group>"; };
+		75A2876F1EA60D9A009C9E31 /* timg-2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "timg-2.jpeg"; sourceTree = "<group>"; };
+		75A287701EA60D9A009C9E31 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +53,7 @@
 		7565BCBC1E72A4FA00133733 = {
 			isa = PBXGroup;
 			children = (
-				7565BCC71E72A4FA00133733 /* CoreGraphicsDemo */,
+				75A287611EA60D9A009C9E31 /* RulerViewSwift */,
 				7565BCC61E72A4FA00133733 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,24 +66,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7565BCC71E72A4FA00133733 /* CoreGraphicsDemo */ = {
+		75A287611EA60D9A009C9E31 /* RulerViewSwift */ = {
 			isa = PBXGroup;
 			children = (
-				7565BCC81E72A4FA00133733 /* AppDelegate.swift */,
-				7565BCCA1E72A4FA00133733 /* ViewController.swift */,
-				7565BCDA1E72A52000133733 /* SXCoreView.swift */,
-				7565BD1B1E76DC9C00133733 /* RulerView.swift */,
-				7565BD1F1E78539700133733 /* RulerCalculator.swift */,
-				7565BD131E76975300133733 /* snow.jpg */,
-				7565BD111E768DFE00133733 /* timg-2.jpeg */,
-				7565BD0D1E768ABD00133733 /* logo@2x.png */,
-				7565BD0F1E768BB100133733 /* finder@3x.png */,
-				7565BCCC1E72A4FA00133733 /* Main.storyboard */,
-				7565BCCF1E72A4FA00133733 /* Assets.xcassets */,
-				7565BCD11E72A4FA00133733 /* LaunchScreen.storyboard */,
-				7565BCD41E72A4FA00133733 /* Info.plist */,
+				75A287621EA60D9A009C9E31 /* AppDelegate.swift */,
+				75A287631EA60D9A009C9E31 /* Assets.xcassets */,
+				75A287641EA60D9A009C9E31 /* LaunchScreen.storyboard */,
+				75A287661EA60D9A009C9E31 /* Main.storyboard */,
+				75A287681EA60D9A009C9E31 /* finder@3x.png */,
+				75A287691EA60D9A009C9E31 /* Info.plist */,
+				75A2876A1EA60D9A009C9E31 /* logo@2x.png */,
+				75A2876B1EA60D9A009C9E31 /* RulerCalculator.swift */,
+				75A2876C1EA60D9A009C9E31 /* RulerView.swift */,
+				75A2876D1EA60D9A009C9E31 /* snow.jpg */,
+				75A2876E1EA60D9A009C9E31 /* SXCoreView.swift */,
+				75A2876F1EA60D9A009C9E31 /* timg-2.jpeg */,
+				75A287701EA60D9A009C9E31 /* ViewController.swift */,
 			);
-			path = CoreGraphicsDemo;
+			path = RulerViewSwift;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,13 +146,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7565BCD31E72A4FA00133733 /* LaunchScreen.storyboard in Resources */,
-				7565BD0E1E768ABD00133733 /* logo@2x.png in Resources */,
-				7565BD101E768BB100133733 /* finder@3x.png in Resources */,
-				7565BCD01E72A4FA00133733 /* Assets.xcassets in Resources */,
-				7565BCCE1E72A4FA00133733 /* Main.storyboard in Resources */,
-				7565BD121E768DFE00133733 /* timg-2.jpeg in Resources */,
-				7565BD141E76975300133733 /* snow.jpg in Resources */,
+				75A287741EA60D9A009C9E31 /* Main.storyboard in Resources */,
+				75A287771EA60D9A009C9E31 /* logo@2x.png in Resources */,
+				75A287721EA60D9A009C9E31 /* Assets.xcassets in Resources */,
+				75A287731EA60D9A009C9E31 /* LaunchScreen.storyboard in Resources */,
+				75A287761EA60D9A009C9E31 /* Info.plist in Resources */,
+				75A2877A1EA60D9A009C9E31 /* snow.jpg in Resources */,
+				75A287751EA60D9A009C9E31 /* finder@3x.png in Resources */,
+				75A2877C1EA60D9A009C9E31 /* timg-2.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,31 +164,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7565BD201E78539700133733 /* RulerCalculator.swift in Sources */,
-				7565BCCB1E72A4FA00133733 /* ViewController.swift in Sources */,
-				7565BCDB1E72A52000133733 /* SXCoreView.swift in Sources */,
-				7565BCC91E72A4FA00133733 /* AppDelegate.swift in Sources */,
-				7565BD1C1E76DC9C00133733 /* RulerView.swift in Sources */,
+				75A2877D1EA60D9A009C9E31 /* ViewController.swift in Sources */,
+				75A287781EA60D9A009C9E31 /* RulerCalculator.swift in Sources */,
+				75A287791EA60D9A009C9E31 /* RulerView.swift in Sources */,
+				75A2877B1EA60D9A009C9E31 /* SXCoreView.swift in Sources */,
+				75A287711EA60D9A009C9E31 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7565BCCC1E72A4FA00133733 /* Main.storyboard */ = {
+		75A287641EA60D9A009C9E31 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7565BCCD1E72A4FA00133733 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7565BCD11E72A4FA00133733 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7565BCD21E72A4FA00133733 /* Base */,
+				75A287651EA60D9A009C9E31 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		75A287661EA60D9A009C9E31 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75A287671EA60D9A009C9E31 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -288,7 +290,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SHCZNHJ2VF;
-				INFOPLIST_FILE = CoreGraphicsDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RulerViewSwift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Story5.CoreGraphicsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -301,7 +303,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SHCZNHJ2VF;
-				INFOPLIST_FILE = CoreGraphicsDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RulerViewSwift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Story5.CoreGraphicsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
