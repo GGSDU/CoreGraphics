@@ -56,12 +56,11 @@
 //    self.ocRulerCalculator.endPoint = self.endPoint;
 //    [self drawRulerWithRect:rect];
 //    
-//    
-//    NSString *measureText = [NSString stringWithFormat:@"%.2f cm",self.measureLength];
-//    [self drawMeasureText:measureText];
-    
+//
     // JAVA
     [self drawRuler];
+    
+    [self drawMeasureText];
 }
 
 #pragma mark - public
@@ -230,8 +229,9 @@
     [self drawTriangleWithContext:context startPoint:self.endPoint width:self.rulerWidth flip:true];
 }
 
-- (void)drawMeasureText:(NSString *)text
+- (void)drawMeasureText
 {
+    NSString *text = [NSString stringWithFormat:@"%.2f cm",self.measureLength];
     NSDictionary *attribute = @{NSForegroundColorAttributeName:[UIColor redColor],
                                 NSFontAttributeName:[UIFont systemFontOfSize:20]};
     [text drawAtPoint:CGPointMake(10, self.bounds.size.height - 50) withAttributes:attribute];
@@ -309,6 +309,8 @@
 - (void)drawRuler
 {
     CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextSetRGBStrokeColor(ctx, 1.0, 0, 0, 1);
+
     if (self.rulerCalculator != nil) {
         
         [self.rulerCalculator calculate:self.startPoint btn2:self.endPoint];
@@ -326,13 +328,6 @@
             CGPathAddLineToPoint(pathRuler1, nil, point1.x, point1.y);
             CGContextAddPath(ctx, pathRuler1);
             CGContextDrawPath(ctx, kCGPathStroke);
-            
-            
-            
-            NSString *text = [NSString stringWithFormat:@"长度为：%fcm",self.measureLength];
-            NSDictionary *attribute = @{NSForegroundColorAttributeName:[UIColor redColor],
-                                        NSFontAttributeName:[UIFont systemFontOfSize:20]};
-            [text drawAtPoint:CGPointMake(10, self.bounds.size.height - 50) withAttributes:attribute];
             
             CGMutablePathRef pathRuler2 = CGPathCreateMutable();
             CGPathMoveToPoint(pathRuler2, nil, point2.x, point2.y);
