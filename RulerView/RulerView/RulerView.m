@@ -215,7 +215,7 @@
     // 画尺子边框
     [self drawRulerFrameWithContext:context];
     // 画尺子标尺
-//    [self drawRulerBodyWithContext:context];
+    [self drawRulerBodyWithContext:context];
     // 画尺子头尾三角形
     [self drawTriangleWithContext:context startPoint:self.startPoint width:self.rulerWidth flip:false];
     [self drawTriangleWithContext:context startPoint:self.endPoint width:self.rulerWidth flip:true];
