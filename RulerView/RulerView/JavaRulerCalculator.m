@@ -12,7 +12,6 @@
 @interface JavaRulerCalculator ()
 
 
-@property (nonatomic,assign) CGFloat measureIconSize; //测量按钮尺寸
 
 @property (nonatomic,assign) CGFloat kTouchPoint;
 @property (nonatomic,assign) CGFloat kRulerLine;

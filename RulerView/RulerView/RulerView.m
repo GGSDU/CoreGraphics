@@ -7,18 +7,24 @@
 //
 
 #import "RulerView.h"
+
+#import "JavaRulerCalculator.h"
+
 #import "RulerCalculator.h"
 
 #define OneYuan_Radius @"1.25cm"
 
 @interface RulerView ()
 
-@property (nonatomic,strong) RulerCalculator *rulerCalculator;
+@property (nonatomic,strong) RulerCalculator *ocRulerCalculator;
 @property (nonatomic,assign) CGPoint startPoint;
 @property (nonatomic,assign) CGPoint endPoint;
 @property (nonatomic,assign) float rulerWidth;
 @property (nonatomic,assign) BOOL startPointTouchSwitch;
 @property (nonatomic,assign) BOOL endPointTouchSwitch;
+
+#pragma mark - java
+@property(nonatomic,strong) JavaRulerCalculator *rulerCalculator;
 
 @end
 
@@ -31,11 +37,11 @@
         self.startPoint  = CGPointMake(280,100);
         self.endPoint    = CGPointMake(280,400);
         self.rulerWidth  = 20;
-        self.rulerCalculator = [[RulerCalculator alloc] init];
-        self.rulerCalculator.startPoint = self.startPoint;
-        self.rulerCalculator.endPoint = self.endPoint;
-        self.rulerCalculator.rulerWidth = self.rulerWidth;
-        self.rulerCalculator.rect = frame;
+        self.ocRulerCalculator = [[RulerCalculator alloc] init];
+        self.ocRulerCalculator.startPoint = self.startPoint;
+        self.ocRulerCalculator.endPoint = self.endPoint;
+        self.ocRulerCalculator.rulerWidth = self.rulerWidth;
+        self.ocRulerCalculator.rect = frame;
         
         _coinRadius = 1.25;
     }
@@ -46,13 +52,16 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    self.rulerCalculator.startPoint = self.startPoint;
-    self.rulerCalculator.endPoint = self.endPoint;
-    [self drawRulerWithRect:rect];
+//    self.ocRulerCalculator.startPoint = self.startPoint;
+//    self.ocRulerCalculator.endPoint = self.endPoint;
+//    [self drawRulerWithRect:rect];
+//    
+//    
+//    NSString *measureText = [NSString stringWithFormat:@"%.2f cm",self.measureLength];
+//    [self drawMeasureText:measureText];
     
-    
-    NSString *measureText = [NSString stringWithFormat:@"%.2f cm",self.measureLength];
-    [self drawMeasureText:measureText];
+    // JAVA
+    [self drawRuler];
 }
 
 #pragma mark - public
@@ -120,7 +129,7 @@
 // MARK: 画平行虚线
 - (void)drawDashWithContext:(CGContextRef)context {
     
-    NSArray *linePoints = [self.rulerCalculator getInterPoints];
+    NSArray *linePoints = [self.ocRulerCalculator getInterPoints];
     
     if (linePoints.count < 4) {
         return;
@@ -151,7 +160,7 @@
 // MARK: 画尺子边框
 - (void)drawRulerFrameWithContext:(CGContextRef)context
 {
-    NSArray *rectPoints = [self.rulerCalculator getRectPoints];
+    NSArray *rectPoints = [self.ocRulerCalculator getRectPoints];
     // 画外边框(最后要计算的尺度)
     if (rectPoints.count != 4) {
         return;
@@ -231,13 +240,13 @@
 // MARK: 画标尺
 - (void)drawRulerBodyWithContext:(CGContextRef)context
 {
-    NSArray *rectPoints = [self.rulerCalculator getRectPoints];
+    NSArray *rectPoints = [self.ocRulerCalculator getRectPoints];
     // 直线AB
     // |x - x0| = d / √(k * k + 1)
-    float kAB     = self.rulerCalculator.kAB;
-    float bAB     = self.rulerCalculator.bAB;
-    float bCE_DF1 = self.rulerCalculator.bCE_DF1;
-    float bCE_DF2 = self.rulerCalculator.bCE_DF2;
+    float kAB     = self.ocRulerCalculator.kAB;
+    float bAB     = self.ocRulerCalculator.bAB;
+    float bCE_DF1 = self.ocRulerCalculator.bCE_DF1;
+    float bCE_DF2 = self.ocRulerCalculator.bCE_DF2;
     
     // 画刻度
     float RulerBodyHeight = sqrtf(powf(self.endPoint.x - self.startPoint.x,2) + powf(self.endPoint.y - self.startPoint.y,2));
@@ -287,13 +296,178 @@
 - (void)setStartPoint:(CGPoint)startPoint
 {
     _startPoint = startPoint;
-    self.rulerCalculator.startPoint = startPoint;
+    self.ocRulerCalculator.startPoint = startPoint;
 }
 
 - (void)setEndPoint:(CGPoint)endPoint
 {
     _endPoint = endPoint;
-    self.rulerCalculator.endPoint = endPoint;
+    self.ocRulerCalculator.endPoint = endPoint;
+}
+
+#pragma mark - java
+- (void)drawRuler
+{
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    if (self.rulerCalculator != nil) {
+        
+        [self.rulerCalculator calculate:self.startPoint btn2:self.endPoint];
+        //画标尺
+        NSArray *points = self.rulerCalculator.rulerLinePoints;
+        if (points != nil && points.count == 4) {
+            
+            CGPoint point0 = [points[0] CGPointValue];
+            CGPoint point1 = [points[1] CGPointValue];
+            CGPoint point2 = [points[2] CGPointValue];
+            CGPoint point3 = [points[3] CGPointValue];
+            
+            CGMutablePathRef pathRuler1 = CGPathCreateMutable();
+            CGPathMoveToPoint(pathRuler1, nil, point0.x, point0.y);
+            CGPathAddLineToPoint(pathRuler1, nil, point1.x, point1.y);
+            CGContextAddPath(ctx, pathRuler1);
+            CGContextDrawPath(ctx, kCGPathStroke);
+            
+            
+            
+            NSString *text = [NSString stringWithFormat:@"长度为：%fcm",self.measureLength];
+            NSDictionary *attribute = @{NSForegroundColorAttributeName:[UIColor redColor],
+                                        NSFontAttributeName:[UIFont systemFontOfSize:20]};
+            [text drawAtPoint:CGPointMake(10, self.bounds.size.height - 50) withAttributes:attribute];
+            
+            CGMutablePathRef pathRuler2 = CGPathCreateMutable();
+            CGPathMoveToPoint(pathRuler2, nil, point2.x, point2.y);
+            CGPathAddLineToPoint(pathRuler2, nil, point3.x, point3.y);
+            CGContextAddPath(ctx, pathRuler2);
+            CGContextDrawPath(ctx, kCGPathStroke);
+        }
+        
+        //画尺子边框
+        NSArray *rulerPoints = self.rulerCalculator.rulerPoints;
+        if (rulerPoints != nil && rulerPoints.count == 4) {
+            CGPoint point0 = [rulerPoints[0] CGPointValue];
+            CGPoint point1 = [rulerPoints[1] CGPointValue];
+            CGPoint point2 = [rulerPoints[2] CGPointValue];
+            CGPoint point3 = [rulerPoints[3] CGPointValue];
+            
+            
+            CGMutablePathRef pathRuler1 = CGPathCreateMutable();
+            CGPathMoveToPoint(pathRuler1, nil, point0.x, point0.y);
+            CGPathAddLineToPoint(pathRuler1, nil, point2.x, point2.y);
+            CGContextAddPath(ctx, pathRuler1);
+            CGContextDrawPath(ctx, kCGPathStroke);
+            
+            CGMutablePathRef pathRuler2 = CGPathCreateMutable();
+            CGPathMoveToPoint(pathRuler2, nil, point1.x, point1.y);
+            CGPathAddLineToPoint(pathRuler2, nil, point3.x, point3.y);
+            CGContextAddPath(ctx, pathRuler2);
+            CGContextDrawPath(ctx, kCGPathStroke);
+            
+            CGMutablePathRef pathRuler3 = CGPathCreateMutable();
+            CGPathMoveToPoint(pathRuler3, nil, point0.x, point0.y);
+            CGPathAddLineToPoint(pathRuler3, nil, point1.x, point1.y);
+            CGContextAddPath(ctx, pathRuler3);
+            CGContextDrawPath(ctx, kCGPathStroke);
+            
+            CGMutablePathRef pathRuler4 = CGPathCreateMutable();
+            CGPathMoveToPoint(pathRuler4, nil, point2.x, point2.y);
+            CGPathAddLineToPoint(pathRuler4, nil, point3.x, point3.y);
+            CGContextAddPath(ctx, pathRuler4);
+            CGContextDrawPath(ctx, kCGPathStroke);
+        }
+
+        //画尺子刻度
+        NSArray *bottomScalePoints = self.rulerCalculator.rulerBottomScalePoints;
+        //画尺子小刻度
+        NSArray *top1ScalePoints = self.rulerCalculator.rulerTop1ScalePoints;
+        if (bottomScalePoints != nil && bottomScalePoints.count > 0
+            && top1ScalePoints != nil && top1ScalePoints.count > 0) {
+            for (int i = 0; i < bottomScalePoints.count; i++) {
+                CGPoint top1Pointi = [top1ScalePoints[i] CGPointValue];
+                CGPoint bottomPointi = [bottomScalePoints[i] CGPointValue];
+                
+                
+                CGMutablePathRef path = CGPathCreateMutable();
+                CGPathMoveToPoint(path, nil, top1Pointi.x, top1Pointi.y);
+                CGPathAddLineToPoint(path, nil, bottomPointi.x, bottomPointi.y);
+                CGContextAddPath(ctx, path);
+                CGContextDrawPath(ctx, kCGPathStroke);
+            }
+        }
+        
+        //画尺子大刻度
+        NSArray *top2ScalePoints = self.rulerCalculator.rulerTop2ScalePoints;
+        if (bottomScalePoints != nil && bottomScalePoints.count > 0
+            && top2ScalePoints != nil && top2ScalePoints.count > 0) {
+            for (int i = 0; i < top2ScalePoints.count; i++) {
+                int index = (i + 1) * 5 - 1;
+                if (bottomScalePoints.count > index) {
+                    CGPoint top2Pointi = [top2ScalePoints[i] CGPointValue];
+                    CGPoint bottomPointi = [bottomScalePoints[(i + 1) * 5 -1] CGPointValue];
+                    
+                    CGMutablePathRef path = CGPathCreateMutable();
+                    CGPathMoveToPoint(path, nil, top2Pointi.x, top2Pointi.y);
+                    CGPathAddLineToPoint(path, nil, bottomPointi.x, bottomPointi.y);
+                    CGContextAddPath(ctx, path);
+                    CGContextDrawPath(ctx, kCGPathStroke);
+                }
+            }
+        }
+        
+        //画操作按钮
+        NSArray *operatorPoints = self.rulerCalculator.operatorPoints;
+        if (operatorPoints != nil && operatorPoints.count == 4) {
+            CGPoint point0 = [operatorPoints[0] CGPointValue];
+            CGPoint point1 = [operatorPoints[1] CGPointValue];
+            CGPoint point2 = [operatorPoints[2] CGPointValue];
+            CGPoint point3 = [operatorPoints[3] CGPointValue];
+            
+            
+            CGMutablePathRef path = CGPathCreateMutable();
+            CGPathMoveToPoint(path, nil, self.startPoint.x, self.startPoint.y);
+            CGPathAddLineToPoint(path, nil, point0.x, point0.y);
+            CGContextAddPath(ctx, path);
+            CGContextDrawPath(ctx, kCGPathStroke);
+            
+            CGPathMoveToPoint(path, nil, point0.x, point0.y);
+            CGPathAddLineToPoint(path, nil, point1.x, point1.y);
+            CGContextAddPath(ctx, path);
+            CGContextDrawPath(ctx, kCGPathStroke);
+            
+            CGPathMoveToPoint(path, nil, point1.x, point1.y);
+            CGPathAddLineToPoint(path, nil, self.startPoint.x, self.startPoint.y);
+            CGContextAddPath(ctx, path);
+            CGContextDrawPath(ctx, kCGPathStroke);
+            
+            
+            CGPathMoveToPoint(path, nil, self.endPoint.x, self.endPoint.y);
+            CGPathAddLineToPoint(path, nil, point2.x, point2.y);
+            CGContextAddPath(ctx, path);
+            CGContextDrawPath(ctx, kCGPathStroke);
+            
+            CGPathMoveToPoint(path, nil, point2.x, point2.y);
+            CGPathAddLineToPoint(path, nil, point3.x, point3.y);
+            CGContextAddPath(ctx, path);
+            CGContextDrawPath(ctx, kCGPathStroke);
+            
+            CGPathMoveToPoint(path, nil, point3.x, point3.y);
+            CGPathAddLineToPoint(path, nil, self.endPoint.x, self.endPoint.y);
+            CGContextAddPath(ctx, path);
+            CGContextDrawPath(ctx, kCGPathStroke);
+        }
+    }
+}
+
+- (JavaRulerCalculator *)rulerCalculator
+{
+    if (_rulerCalculator == nil) {
+        _rulerCalculator = [[JavaRulerCalculator alloc] init];
+        _rulerCalculator.width = self.bounds.size.width;
+        _rulerCalculator.height = self.bounds.size.height;
+        _rulerCalculator.rulerWidth = self.rulerWidth;
+        _rulerCalculator.rulerScaleWidth = self.rulerWidth / 2;
+        _rulerCalculator.measureIconSize = self.rulerWidth;
+    }
+    return _rulerCalculator;
 }
 
 @end

@@ -15,15 +15,21 @@
 @property (nonatomic,assign) int height; //控件高度
 @property (nonatomic,assign) CGFloat rulerWidth; // 尺子宽度
 @property (nonatomic,assign) CGFloat rulerScaleWidth; //刻度宽度
-
-// 画标尺
-@property (nonatomic,strong) NSMutableArray *rulerLinePoints;
-@property (nonatomic,strong) NSMutableArray *rulerPoints;
-@property (nonatomic,strong) NSMutableArray *rulerBottomScalePoints;
-@property (nonatomic,strong) NSMutableArray *rulerTop1ScalePoints;
-@property (nonatomic,strong) NSMutableArray *rulerTop2ScalePoints;
-@property (nonatomic,strong) NSMutableArray *operatorPoints;
+@property (nonatomic,assign) CGFloat measureIconSize; //测量按钮尺寸
 
 - (void)calculate:(CGPoint)btn1 btn2:(CGPoint)btn2;
+
+// 画虚线
+@property (nonatomic,strong) NSMutableArray *rulerLinePoints;
+// 尺子边框
+@property (nonatomic,strong) NSMutableArray *rulerPoints;
+// 尺子刻度
+@property (nonatomic,strong) NSMutableArray *rulerBottomScalePoints;
+// 尺子小刻度
+@property (nonatomic,strong) NSMutableArray *rulerTop1ScalePoints;
+// 尺子大刻度
+@property (nonatomic,strong) NSMutableArray *rulerTop2ScalePoints;
+// 尺子头尾
+@property (nonatomic,strong) NSMutableArray *operatorPoints;
 
 @end

@@ -15,8 +15,7 @@
 		75A2879A1EA60E08009C9E31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A287981EA60E08009C9E31 /* LaunchScreen.storyboard */; };
 		75A287A61EA60E56009C9E31 /* RulerCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A287A31EA60E56009C9E31 /* RulerCalculator.m */; };
 		75A287A71EA60E56009C9E31 /* RulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A287A51EA60E56009C9E31 /* RulerView.m */; };
-		75A287AA1EA63C0F009C9E31 /* JavaRulerCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A287A91EA63C0F009C9E31 /* JavaRulerCalculator.m */; };
-		75A287AD1EA6F87C009C9E31 /* JavaRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A287AC1EA6F87C009C9E31 /* JavaRulerView.m */; };
+		75A287B31EA73224009C9E31 /* JavaRulerCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A287B21EA73224009C9E31 /* JavaRulerCalculator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +33,8 @@
 		75A287A31EA60E56009C9E31 /* RulerCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulerCalculator.m; sourceTree = "<group>"; };
 		75A287A41EA60E56009C9E31 /* RulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RulerView.h; sourceTree = "<group>"; };
 		75A287A51EA60E56009C9E31 /* RulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulerView.m; sourceTree = "<group>"; };
-		75A287A81EA63C0F009C9E31 /* JavaRulerCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JavaRulerCalculator.h; sourceTree = "<group>"; };
-		75A287A91EA63C0F009C9E31 /* JavaRulerCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JavaRulerCalculator.m; sourceTree = "<group>"; };
-		75A287AB1EA6F87C009C9E31 /* JavaRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JavaRulerView.h; sourceTree = "<group>"; };
-		75A287AC1EA6F87C009C9E31 /* JavaRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JavaRulerView.m; sourceTree = "<group>"; };
+		75A287B11EA73224009C9E31 /* JavaRulerCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JavaRulerCalculator.h; sourceTree = "<group>"; };
+		75A287B21EA73224009C9E31 /* JavaRulerCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JavaRulerCalculator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,10 +67,6 @@
 		75A287891EA60E08009C9E31 /* RulerView */ = {
 			isa = PBXGroup;
 			children = (
-				75A287AB1EA6F87C009C9E31 /* JavaRulerView.h */,
-				75A287AC1EA6F87C009C9E31 /* JavaRulerView.m */,
-				75A287A81EA63C0F009C9E31 /* JavaRulerCalculator.h */,
-				75A287A91EA63C0F009C9E31 /* JavaRulerCalculator.m */,
 				75A287A11EA60E56009C9E31 /* RulerView */,
 				75A2878D1EA60E08009C9E31 /* AppDelegate.h */,
 				75A2878E1EA60E08009C9E31 /* AppDelegate.m */,
@@ -99,6 +92,8 @@
 		75A287A11EA60E56009C9E31 /* RulerView */ = {
 			isa = PBXGroup;
 			children = (
+				75A287B11EA73224009C9E31 /* JavaRulerCalculator.h */,
+				75A287B21EA73224009C9E31 /* JavaRulerCalculator.m */,
 				75A287A21EA60E56009C9E31 /* RulerCalculator.h */,
 				75A287A31EA60E56009C9E31 /* RulerCalculator.m */,
 				75A287A41EA60E56009C9E31 /* RulerView.h */,
@@ -182,8 +177,7 @@
 				75A287A61EA60E56009C9E31 /* RulerCalculator.m in Sources */,
 				75A287921EA60E08009C9E31 /* ViewController.m in Sources */,
 				75A2878F1EA60E08009C9E31 /* AppDelegate.m in Sources */,
-				75A287AA1EA63C0F009C9E31 /* JavaRulerCalculator.m in Sources */,
-				75A287AD1EA6F87C009C9E31 /* JavaRulerView.m in Sources */,
+				75A287B31EA73224009C9E31 /* JavaRulerCalculator.m in Sources */,
 				75A2878C1EA60E08009C9E31 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
